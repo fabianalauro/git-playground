@@ -10,4 +10,17 @@ jobs:
         run: |
           echo "Hello there!"
           echo "I hope you are having a great day!"
-          echo "This is a test CI job."
+          echo "This is a test CI job."	  
+  job_2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up CMake
+        uses: lukka/get-cmake@latest	
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Creating Cmake environment
+        run: |
+          mkdir build
+          cd ./build
+          cmake ..
+          cmake --build .
